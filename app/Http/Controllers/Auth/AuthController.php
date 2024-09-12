@@ -37,4 +37,11 @@ class AuthController extends Controller
             'user' => UserResource::make($user)
         ]);
     }
+
+    public function logout()
+    {
+        auth()->user()->currentAccessToken()->delete();
+
+        return response()->json(['message' => 'Successfully logged out']);
+    }
 }
