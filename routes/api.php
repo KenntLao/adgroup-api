@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\IpAddressController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,12 @@ Route::prefix('auth')
     ->group(function () {
         Route::post('login', [AuthController::class, 'login'])->name('login');
         Route::post('logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth:sanctum');
+});
+
+Route::prefix('ip-address')
+    ->group(function () {
+        Route::get('', [IpAddressController::class, 'index']);
+        Route::post('', [IpAddressController::class, 'store']);
 });
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\UserLoggedIn;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Resources\UserResource;
@@ -31,6 +32,8 @@ class AuthController extends Controller
         }
 
         $newAccessToken = $user->createToken($request->header('user-agent'));
+
+        event(new UserLoggedIn($user, $newAccessToken));
 
         return response()->json([
             'token' => $newAccessToken->plainTextToken,
