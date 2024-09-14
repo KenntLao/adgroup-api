@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuditLogController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\IpAddressController;
 use Illuminate\Http\Request;
@@ -26,10 +27,7 @@ Route::prefix('ip-address')
     ->group(function () {
         Route::get('', [IpAddressController::class, 'index']);
         Route::post('', [IpAddressController::class, 'store']);
+        Route::patch('/{ipAddress}', [IpAddressController::class, 'update']);
 });
 
-
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('audit-logs', AuditLogController::class);

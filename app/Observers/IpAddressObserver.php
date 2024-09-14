@@ -16,7 +16,10 @@ class IpAddressObserver
     public function updated(IpAddress $model)
     {
         $original = $model->getOriginal();
-        $changes = array_diff_assoc($model->getAttributes(), $original);
+        $current = $model->getAttributes();
+        $changes = array_diff_assoc($current, $original);
+
+        $changes['ip_address'] = $current['ip_address'] ?? null;
 
         $changes = !empty($changes) ? $changes : ['label' => $model->label];
 

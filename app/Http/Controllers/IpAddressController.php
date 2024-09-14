@@ -26,7 +26,7 @@ class IpAddressController extends Controller
     {
         $ipAddress = IpAddress::create($request->validated());
 
-        return response()->json(IpAddressResource::make($ipAddress));
+        return response()->json(IpAddressResource::make($ipAddress), 201);
     }
 
     public function update(UpdateRequest $request, IpAddress $ipAddress)
