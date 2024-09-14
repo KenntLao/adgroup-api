@@ -1,0 +1,797 @@
+{
+	"info": {
+		"_postman_id": "4892c639-0d49-478a-844b-5d38aeb16822",
+		"name": "Ad Group",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10411401"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "johndoe@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://adgroup-api.test/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"adgroup-api",
+								"test"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "johndoe@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://adgroup-api.test/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"adgroup-api",
+										"test"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 12 Sep 2024 11:34:33 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"3|cXAPP7FlpyDKGjjPDGCxQVs8luWFnPQHDeLx9NpN533a31b8\",\n    \"user\": {\n        \"id\": 1,\n        \"name\": \"John Doe\",\n        \"email\": \"johndoe@example.com\",\n        \"email_verified_at\": null,\n        \"created_at\": \"2024-09-12T11:19:50.000000Z\",\n        \"updated_at\": \"2024-09-12T11:19:50.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|ARrZzZCbgGnz74fDxO8x40YL7mnec9bEWPKzfKd98964921a",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://adgroup-api.test/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"adgroup-api",
+								"test"
+							],
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://adgroup-api.test/api/auth/logout",
+									"protocol": "http",
+									"host": [
+										"adgroup-api",
+										"test"
+									],
+									"path": [
+										"api",
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 12 Sep 2024 12:01:51 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Successfully logged out\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "IP Address",
+			"item": [
+				{
+					"name": "Add IP Address",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "13|e2kP1iBDtdP6pezrnlHCxC5VMiOWjpVV8GYz0mDaabf9962e",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ip_address",
+									"value": "192.158.1.33",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://adgroup-api.test/api/ip-address",
+							"protocol": "http",
+							"host": [
+								"adgroup-api",
+								"test"
+							],
+							"path": [
+								"api",
+								"ip-address"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "422 - Invalid Data",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "ip_address",
+											"value": "192.158.1.32",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://adgroup-api.test/api/ip-address",
+									"protocol": "http",
+									"host": [
+										"adgroup-api",
+										"test"
+									],
+									"path": [
+										"api",
+										"ip-address"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 12 Sep 2024 15:05:56 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The ip address has already been taken.\",\n    \"errors\": {\n        \"ip_address\": [\n            \"The ip address has already been taken.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "200 - Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "ip_address",
+											"value": "192.158.1.33",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://adgroup-api.test/api/ip-address",
+									"protocol": "http",
+									"host": [
+										"adgroup-api",
+										"test"
+									],
+									"path": [
+										"api",
+										"ip-address"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 12 Sep 2024 15:06:18 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"ip_address\": \"192.158.1.33\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update IP Address",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "12|YKx0MO2qXWvR8WNfkTylIv6ke1PsXEYiaKWLqtxY49bbc0bb",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"label\": \"Label Sample Updated\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://adgroup-api.test/api/ip-address/:ipAddress",
+							"protocol": "http",
+							"host": [
+								"adgroup-api",
+								"test"
+							],
+							"path": [
+								"api",
+								"ip-address",
+								":ipAddress"
+							],
+							"variable": [
+								{
+									"key": "ipAddress",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - Successful Response",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"label\": \"Label Sample Updated\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://adgroup-api.test/api/ip-address/:ipAddress",
+									"protocol": "http",
+									"host": [
+										"adgroup-api",
+										"test"
+									],
+									"path": [
+										"api",
+										"ip-address",
+										":ipAddress"
+									],
+									"variable": [
+										{
+											"key": "ipAddress",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 12 Sep 2024 15:06:58 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "56"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"ip_address\": \"192.158.1.32\",\n    \"label\": \"Label Sample Updated\"\n}"
+						}
+					]
+				},
+				{
+					"name": "IP Addresses List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "13|e2kP1iBDtdP6pezrnlHCxC5VMiOWjpVV8GYz0mDaabf9962e",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://adgroup-api.test/api/ip-address",
+							"protocol": "http",
+							"host": [
+								"adgroup-api",
+								"test"
+							],
+							"path": [
+								"api",
+								"ip-address"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://adgroup-api.test/api/ip-address",
+									"protocol": "http",
+									"host": [
+										"adgroup-api",
+										"test"
+									],
+									"path": [
+										"api",
+										"ip-address"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 12 Sep 2024 15:09:17 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"ip_address\": \"192.158.1.38\",\n        \"label\": null\n    },\n    {\n        \"id\": 2,\n        \"ip_address\": \"192.158.1.32\",\n        \"label\": \"Label Sample Updated\"\n    },\n    {\n        \"id\": 3,\n        \"ip_address\": \"192.158.1.33\",\n        \"label\": null\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Audit Log",
+			"item": [
+				{
+					"name": "Log List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "13|e2kP1iBDtdP6pezrnlHCxC5VMiOWjpVV8GYz0mDaabf9962e",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://adgroup-api.test/api/audit-logs",
+							"protocol": "http",
+							"host": [
+								"adgroup-api",
+								"test"
+							],
+							"path": [
+								"api",
+								"audit-logs"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://adgroup-api.test/api/audit-logs",
+									"protocol": "http",
+									"host": [
+										"adgroup-api",
+										"test"
+									],
+									"path": [
+										"api",
+										"audit-logs"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 14 Sep 2024 17:22:43 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 3,\n        \"event\": \"Updated IP Address Label\",\n        \"changes\": \"{\\\"label\\\":\\\"123\\\",\\\"updated_at\\\":\\\"2024-09-14 17:07:02\\\",\\\"ip_address\\\":\\\"192.158.1.38\\\"}\",\n        \"created_at\": \"2024-09-14T17:07:02.000000Z\"\n    },\n    {\n        \"id\": 4,\n        \"event\": \"login\",\n        \"changes\": \"{\\\"email\\\":\\\"johndoe@example.com\\\",\\\"login_time\\\":\\\"2024-09-14T17:16:14.909153Z\\\"}\",\n        \"created_at\": \"2024-09-14T17:16:14.000000Z\"\n    },\n    {\n        \"id\": 5,\n        \"event\": \"login\",\n        \"changes\": \"{\\\"email\\\":\\\"johndoe@example.com\\\",\\\"login_time\\\":\\\"2024-09-14T17:18:34.306525Z\\\"}\",\n        \"created_at\": \"2024-09-14T17:18:34.000000Z\"\n    }\n]"
+						}
+					]
+				}
+			]
+		}
+	]
+}
