@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuditLogController;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\IpAddressController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +17,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('auth')
+    ->group(function () {
+        Route::post('login', [AuthController::class, 'login'])->name('login');
+        Route::post('logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth:sanctum');
 });
+
+Route::prefix('ip-address')
+    ->group(function () {
+        Route::get('', [IpAddressController::class, 'index']);
+        Route::post('', [IpAddressController::class, 'store']);
+        Route::patch('/{ipAddress}', [IpAddressController::class, 'update']);
+});
+
+Route::get('audit-logs', AuditLogController::class);
